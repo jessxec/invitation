@@ -4,7 +4,7 @@ import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 import { DeviceOrientationControls } from  '/DeviceOrientationControls.js';
 
 const ratio = 4096/2907;
-const scale = 6.5;
+const scale = 5.5;
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 const cameraParent = new THREE.Object3D();
