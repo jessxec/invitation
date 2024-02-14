@@ -1,12 +1,10 @@
 import * as THREE from 'three';
 import gsap from 'gsap';
-import * as Firework from '/firework.js';
-import * as Football from '/football.js'
 import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 import { DeviceOrientationControls } from  '/DeviceOrientationControls.js';
 
 const ratio = 4096/2907;
-const scale = 5.5;
+const scale = 6.5;
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 const cameraParent = new THREE.Object3D();
@@ -37,28 +35,27 @@ const clock = new THREE.Clock();
 
 const fireworks = [];
 
-const ambientLight = new THREE.AmbientLight( 0xffffff, 1 );
+const ambientLight = new THREE.AmbientLight( 0xff64b9, 1 );
 scene.add( ambientLight );
 
-const light1 = new THREE.DirectionalLight( 0xffffff, 100 );
+const light1 = new THREE.DirectionalLight( 0xff64b9, 100 );
 scene.add( light1 );
 
-const light2 = new THREE.DirectionalLight( 0xffffff, 100 );
+const light2 = new THREE.DirectionalLight( 0xff64b9, 100 );
 scene.add( light2 );
 
-let particleTexture = new THREE.TextureLoader().load( "particle.png" );
 
 
 
 const geometryPlane = new THREE.PlaneGeometry(  scale / ratio, scale );
-const packetDiffuse = new THREE.TextureLoader().load( "textures/diffuse.png" );
-const packetAlpha = new THREE.TextureLoader().load( "textures/alpha.png" );
+const packetDiffuse = new THREE.TextureLoader().load( "textures/diffuseR.png" );
+const packetAlpha = new THREE.TextureLoader().load( "textures/alphaRicky.png" );
 
-const packetBump = new THREE.TextureLoader().load( "textures/bump.png" );
+const packetBump = new THREE.TextureLoader().load( "textures/bumpR.png" );
 
 packetDiffuse.colorSpace = THREE.SRGBColorSpace;
 var noteDiffuse ;
-var oldDiffuse = new THREE.TextureLoader().load( "textures/note-diffuse.png" );;
+var oldDiffuse = new THREE.TextureLoader().load( "textures/inside.png" );;
 const noteBump = new THREE.TextureLoader().load( "textures/note-bump.png" );
 const packetMetal = new THREE.TextureLoader().load( "old/metallic.jpg" );
 const packetRoughness = new THREE.TextureLoader().load( "old/roughness.jpg" );
@@ -211,37 +208,11 @@ var isAnimatingCard = false;
 
 var isOut = false;
 
-function createFirework () {
-    
-    let offsetXY = new THREE.Vector2( ( Math.random() - 0.5), Math.random() - 0.5);
-    fireworks.push(new Firework.Firework (
-        new THREE.Vector3(offsetXY.x, offsetXY.y + scale/3, 1), 
-        scene, 
-        particleTexture
-    ));
-    
-}
-
-function createFootball () {
-    let offsetXY = new THREE.Vector2(( Math.random() - 0.5), Math.random() - 0.5);
-    fireworks.push(new Football.Football (
-        new THREE.Vector3(offsetXY.x, offsetXY.y + scale/3, 1), 
-        scene, 
-        footballPrefab
-    ));
-    
-}
-
 function onTapCard (event) {
     if (isOut) {
         let d = 0.1;
         gsap.to(card.position, {z: -0.3, duration: d, ease: "power1.out"});
         gsap.to(card.position, {z: -0.001, duration: d, ease: "power1.in", delay: d });
-        // createFootball();
-        if (Math.random() < 0.2) {
-            createFootball();
-        }
-        createFirework();     
     }
 }
 
@@ -303,19 +274,17 @@ function moveOut() {
     gsap.to(envelope.position, {z: 0.2, duration: 0.2});
     envelope.position.set(0, 0, 0);
     gsap.to(card.position, {
-        y: scale * 1/ 8,
+        y: scale * 1/ 15,
         delay: 0.2,
         duration: 1,
     })
     gsap.to(envelope.position, {
-        y: -scale * 6/8, 
+        y: -scale, 
         delay: 0.2,
         duration: 1, 
         onComplete: () => {
             isOut = true;
             isAnimatingEnvelope = false
-            
-            createFirework();
         }
     });
 }
