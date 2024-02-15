@@ -51,11 +51,11 @@ const geometryPlane = new THREE.PlaneGeometry(  scale / ratio, scale );
 const packetDiffuse = new THREE.TextureLoader().load( "textures/diffuseR.png" );
 const packetAlpha = new THREE.TextureLoader().load( "textures/alphaRicky.png" );
 
-const packetBump = new THREE.TextureLoader().load( "textures/bumpR.png" );
+const packetBump = new THREE.TextureLoader().load( "textures/bump.png" );
 
 packetDiffuse.colorSpace = THREE.SRGBColorSpace;
 var noteDiffuse ;
-var oldDiffuse = new THREE.TextureLoader().load( "textures/inside.png" );;
+var oldDiffuse = new THREE.TextureLoader().load( "textures/inside 2.png" );;
 const noteBump = new THREE.TextureLoader().load( "textures/note-bump.png" );
 const packetMetal = new THREE.TextureLoader().load( "old/metallic.jpg" );
 const packetRoughness = new THREE.TextureLoader().load( "old/roughness.jpg" );
