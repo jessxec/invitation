@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-        <meta property="og:image" content="/textures/screenshot.png" />
+        <meta property="og:image" content="/textures/diffuseR.png" />
 
 		<title>Invitation</title>
         <link rel="icon" type="image/x-icon" href="/textures/favicon-16x16.ico">
@@ -13,7 +13,7 @@
                 margin: 0; 
                 overflow: hidden;
                 touch-action: manipulation;
-                background: linear-gradient(#500 0%, #190000 100%);
+                background: black;
                 /* background: black; */
                 /* background: linear-gradient(180deg, #000 84.56%, #270000 100%);                 */
                 /* background: -webkit-linear-gradient(0deg, #3B0000, #812700);
@@ -60,18 +60,23 @@
 	<body id="body">
         <div id="permission" class="modal">
 
-            <p >tap anywhere to enable your gyroscope</p>
+            <p >Tap to enable your gyroscope</p>
         </div>
 
-        <p id="open">tap to open your invitation</p>
+        <p id="open">Tap to open your card</p>
 
 		<script type="module" src="/main.js"></script>
         <script type="module" src="/physics.js"></script>
         <script type="module" src="/firework.js"></script>
         <script type="module" src="/football.js"></script>
         <script type="module" src="/DeviceOrientationControls.js"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
-	</body>
+        <style type="text/css">
+            @font-face {
+                font-family: "Carta Nueva";
+                src: url("../public/textures/CartaNuevaTRIAL-Deck.otf") format("opentype");
+            }
+            p.customfont { 
+                font-family: "My Custom Font", Verdana, Tahoma;
+            }
+            </style>
 </html>
