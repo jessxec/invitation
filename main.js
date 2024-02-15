@@ -226,8 +226,8 @@ function onTapEnvelope (event) {
     
 }
 
-let b1 = 'linear-gradient(#210000 0%, #270000 100%)';
-let b2 = 'linear-gradient(#500 0%, #190000 100%)';
+let b1 = '#0';
+let b2 = '#0';
 
 function moveIn(){
    
